@@ -25,8 +25,11 @@ public class GeneratorSqlmap {
 	} 
 	public static void main(String[] args) throws Exception {
 		try {
+
+
 			GeneratorSqlmap generatorSqlmap = new GeneratorSqlmap();
 			generatorSqlmap.generator();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

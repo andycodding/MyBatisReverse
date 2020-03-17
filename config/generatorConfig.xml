@@ -7,7 +7,12 @@
 	<!--引入数据库配置文件以解耦-->
 	<properties resource="db.properties"/>
 
-	<context id="testTables" targetRuntime="MyBatis3">
+	<context id="testTables" targetRuntime="MyBatis3Simple">
+
+		<property name="autoDelimitKeywords" value="true"></property>
+		<property name="beginningDelimiter" value="`"></property>
+		<property name="endingDelimiter" value="`"></property>
+
 		<commentGenerator>
 			<!-- 是否去除自动生成的注释，true：是；false:否 -->
 			<property name="suppressAllComments" value="true" />
@@ -24,6 +29,8 @@
 			password="yycg">
 		</jdbcConnection> -->
 
+
+
 		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
 			NUMERIC 类型解析为java.math.BigDecimal -->
 		<javaTypeResolver>
@@ -31,7 +38,7 @@
 		</javaTypeResolver>
 
 		<!-- targetProject:生成PO类的位置 -->
-		<javaModelGenerator targetPackage="cn.michael.ssm.po"
+		<javaModelGenerator targetPackage="com.example.famdam.webredissql.data.entity"
 			targetProject=".\src">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
@@ -39,7 +46,7 @@
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
         <!-- targetProject:mapper映射文件生成的位置 -->
-		<sqlMapGenerator targetPackage="cn.michael.ssm.mapper"
+		<sqlMapGenerator targetPackage="com.example.famdam.webredissql.data.mapper"
 			targetProject=".\src">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
@@ -49,15 +56,14 @@
 		和mapper.java在同一目录下
 		 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="cn.michael.ssm.mapper"
+			targetPackage="com.example.famdam.webredissql.data.mapper"
 			targetProject=".\src">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
+
 		</javaClientGenerator>
 		<!-- 指定数据库表 -->
-		<table tableName="${jdbc.table.items}"></table>
-		<table tableName="${jdbc.table.orders}"></table>
-		<table tableName="${jdbc.table.orderdetail}"></table>
+		<table tableName="${jdbc.table.help}"></table>
 		<table tableName="${jdbc.table.user}"></table>
 		<!-- <table schema="" tableName="sys_user"></table>
 		<table schema="" tableName="sys_role"></table>
