@@ -7,7 +7,7 @@
 	<!--引入数据库配置文件以解耦-->
 	<properties resource="db.properties"/>
 
-	<context id="testTables" targetRuntime="MyBatis3Simple">
+	<context id="testTables" targetRuntime="MyBatis3">
 
 		<property name="autoDelimitKeywords" value="true"></property>
 		<property name="beginningDelimiter" value="`"></property>
